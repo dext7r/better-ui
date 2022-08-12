@@ -18,8 +18,8 @@ jobs:
       - name: Sync better-ui 🚀
         uses: Yikun/hub-mirror-action@master
         with:
-          src: github/h7ml
-          dst: gitee/h7ml
+          src: github/better-ui
+          dst: gitee/better-ui
           dst_key: ${{ secrets.PRIVATE_KEY }}
           dst_token: ${{ secrets.GIT_TOKEN }}
           static_list: "better-ui"
