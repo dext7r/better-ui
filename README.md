@@ -1,7 +1,7 @@
 <br>
 
 <p align="center">
-<img src="https://github.com/h7ml/better-ui/blob/master/assets/logo.jpeg" style="width:200px;" />
+<img src="./assets/logo.jpeg" style="width:200px;" />
 </p>
 
 <h1 align="center">better-ui</h1>
