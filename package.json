@@ -1,0 +1,52 @@
+{
+  "name": "better-ui",
+  "version": "1.0.0",
+  "description": "better-ui",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "keywords": ["better-ui"],
+  "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/h7ml/better-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/h7ml/better-ui/issues"
+  },
+  "author": {
+    "name": "h7ml",
+    "mail": "h7ml@qq.com",
+    "github": "https://github.com/h7ml/better-ui"
+  },
+  "homepage": "https://better-h7ml.vercel.app",
+  "dependencies": {
+    "vite": "^2.9.15",
+    "vue": "^3.2.37"
+  },
+  "engines": {
+    "node": ">= 12.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "devDependencies": {
+    "commitizen": "^4.2.5",
+    "conventional-changelog-cli": "^2.2.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "standard-version": "^9.5.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}
