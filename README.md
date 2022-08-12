@@ -1,7 +1,7 @@
 <br>
 
 <p align="center">
-<img src="https://github.com/h7ml/better-ui/blob/main/assets/logo.jpeg" style="width:200px;" />
+<img src="https://github.com/h7ml/better-ui/blob/master/assets/logo.jpeg" style="width:200px;" />
 </p>
 
 <h1 align="center">better-ui</h1>
@@ -12,7 +12,7 @@ better-ui
 
 <p align="center">
     <a href="https://www.npmjs.com/package/better-ui"><img src="https://img.shields.io/npm/v/better-ui?color=c95f8b&amp;label=" alt="NPM version"></a>
-    <a href="https://github.com/h7ml/better-ui/actions/workflows/main.yml"><img src="https://github.com/h7ml/better-ui/actions/workflows/main.yml/badge.svg?branch=main" alt="CI" style="max-width: 100%;"></a>
+    <a href="https://github.com/h7ml/better-ui/actions/workflows/master.yml"><img src="https://github.com/h7ml/better-ui/actions/workflows/main.yml/badge.svg?branch=master" alt="CI" style="max-width: 100%;"></a>
 </p>
 
 <br>
