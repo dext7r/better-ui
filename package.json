@@ -4,7 +4,8 @@
   "description": "better-ui",
   "main": "index.js",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build"
   },
   "keywords": ["better-ui"],
   "license": "Apache-2.0",
