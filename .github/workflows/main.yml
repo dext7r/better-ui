@@ -22,10 +22,7 @@ jobs:
           dst: gitee/better-ui
           dst_key: ${{ secrets.PRIVATE_KEY }}
           dst_token: ${{ secrets.GIT_TOKEN }}
-          account_type: org
-          timeout: '1h'
-          debug: true
-          force_update: true
+          static_list: "better-ui"
     needs: deploy
 
   deploy:
