@@ -3,7 +3,11 @@ on:
   push:
     branches: [master]
   workflow_dispatch:
-
+    inputs:
+      root_sol:
+        description: "Release Title"
+        required: true
+        default: "better-ui"
 # 设置上海时区
 env:
   TZ: Asia/Shanghai
