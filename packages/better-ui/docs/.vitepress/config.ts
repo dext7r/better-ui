@@ -17,6 +17,13 @@ const config = {
   description: "Better-Ui 是一个基于 Vite 的 UI 组件库",
   themeConfig: {
     sidebar,
+    repo: 'better-ui/better-ui',
+    repoLabel: '查看源码',
+    docsDir: 'packages/better-ui/docs',
+    editLinks: true,
+    editLinkText: '帮助我们改善此页面！',
+    lastUpdated: '上次更新',
+    smoothScroll: true,
   },
   markdown: {
     config: (md) => {
