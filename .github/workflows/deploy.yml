@@ -49,13 +49,12 @@ jobs:
           name: h7ml
           path: docs/.vitepress/dist
 
-      - name: Deploy to gh pages  🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy to github gh-pages 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          repository-name: h7ml/h7ml
-          branch: gh-pages
-          folder: docs/.vitepress/dist
-          token: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.GIT_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs/.vitepress/dist
 
       - name: Deploy to surge 🚀
         uses: dswistowski/surge-sh-action@v1
