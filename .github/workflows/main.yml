@@ -24,9 +24,10 @@ jobs:
         with:
           src: github/better-ui
           dst: gitee/better-ui
-          dst_key: ${{ secrets.PRIVATE_KEY }}
-          dst_token: ${{ secrets.GIT_TOKEN }}
-          static_list: "better-ui"
+          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+          dst_token: ${{ secrets.GITEE_TOKEN }}
+#          static_list: "better-ui"
+          account_type: org
     needs: deploy
 
   deploy:
