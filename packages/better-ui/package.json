@@ -12,7 +12,9 @@
     "test:run": "vitest run",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "server:ui": "node ./server/ui.js",
+    "server:doc": "node ./server/doc.js"
   },
   "keywords": [
     "better-ui"
@@ -80,11 +82,12 @@
     "husky": "^8.0.1",
     "jsdom": "^19.0.0",
     "pnpm": "^7.9.0",
+    "pushstate-server": "^3.1.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "standard-version": "^9.5.0",
     "unocss": "^0.33.4",
-    "vitepress": "^0.22.4",
+    "vitepress": "^1.0.0-alpha.4",
     "vitepress-theme-demoblock": "^1.4.2",
     "vitest": "^0.14.0"
   },
