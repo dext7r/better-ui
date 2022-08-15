@@ -1,6 +1,6 @@
-# 🔨 Better-Ui 是什么?
+# 🔨 What is Better - the Ui?
 
-Better-Ui Element，一套为开发者、设计师和产品经理准备的基于 Vite 的桌面端组件库
+Better-ui, a library of Vite-based desktop components for developers, designers, and product managers
 
 ## Features
 
@@ -11,12 +11,12 @@ Better-Ui Element，一套为开发者、设计师和产品经理准备的基于
 - 😃 Eslint + Prittier
 - 🎨 UnoCSS - the instant on-demand atomic CSS engine
 - 🌍 I18n ready
-- 🚘 CI/CD with GithubActions
+- 🚘 CI/CD with Github Actions
 
 ## Install
 
 ```bash
-npm i better-ui
+pnpm add @h7ml/better-ui -D
 ```
 
 ## Quick Start
@@ -26,7 +26,7 @@ import Vue from "vue";
 import BetterUI from "better-ui";
 
 const App = {
-  template: `<BButton color="blue">主要按钮</BButton>`,
+    template: `<BButton color="blue">主要按钮</BButton>`,
 };
 
 createApp(App).use(BetterUI).mount("#app");
@@ -35,3 +35,8 @@ createApp(App).use(BetterUI).mount("#app");
 ## Browser Support
 
 Modern browsers and Internet Explorer 10+.
+
+## About
+- [repository](https://github.com/h7ml/better-ui)
+- [issues](https://github.com/h7ml/better-ui/issues)
+- [homepage](https://better-ui.github.io)

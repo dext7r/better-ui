@@ -1,5 +1,5 @@
 {
-  "name": "better-ui",
+  "name": "@h7ml/better-ui",
   "version": "1.0.0",
   "description": "better-ui",
   "main": "index.js",
@@ -39,6 +39,7 @@
   },
   "homepage": "https://better-h7ml.vercel.app",
   "dependencies": {
+    "@h7ml/better-ui": "last",
     "@types/fs-extra": "^9.0.13",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
