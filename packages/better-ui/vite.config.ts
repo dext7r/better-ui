@@ -23,9 +23,10 @@ export default defineConfig({
       name: "BetterUI",
       fileName: "better-ui",
       // 导出模块格式
-      formats: ["es", "umd", "iife"],
+      formats: ["es", "umd", "iife", "cjs"],
     },
   },
+  // @ts-ignore
   test: {
     globals: true,
     environment: "happy-dom",
