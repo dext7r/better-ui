@@ -14,7 +14,6 @@ env:
 
 jobs:
   sync:
-    name: sync gitee 🚀
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🚀
@@ -54,13 +53,12 @@ jobs:
       - name: Install Deps  🚀
         run: pnpm install
 
-      - name: cd better-ui  🚀
-        run: cd packages/better-ui
-
       - name: Build project  🚀
         env:
           NODE_OPTIONS: --max_old_space_size=4096
-        run: pnpm run docs:build
+        run: |
+          cd packages/better-ui
+          pnpm run docs:build
 
       - name: copy README.md
         run: cp README.md packages/better-ui/docs/.vitepress/dist

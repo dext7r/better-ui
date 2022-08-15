@@ -1,13 +1,11 @@
 name: claer
 on:
-  push:
-    branches: [ master ]
   workflow_dispatch:
     inputs:
       root_sol:
-        description: "Release Title"
+        description: "claer Title"
         required: true
-        default: "better-ui"
+        default: "claer"
 env:
   TZ: Asia/Shanghai
 
