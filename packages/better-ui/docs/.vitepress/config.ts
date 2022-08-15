@@ -1,6 +1,6 @@
 import demoBlock from "vitepress-theme-demoblock";
 import { defineConfig } from "vitepress";
-const siteConfig = {
+const sidebar = {
   "/": [
     {
       text: "快速开始",
@@ -29,6 +29,7 @@ const nav =  [
   { text: '资源', link: '/resource/' },
 ]
 export default defineConfig({
+  base: "/",
   lang: "zh-CN",
   title: "🔨  Better-Ui",
   description: "better-ui是一个基于Vite的UI组件库",
@@ -37,7 +38,7 @@ export default defineConfig({
   themeConfig: {
     siteTitle: "🔨  better-ui是一个基于Vite的UI组件库",
     logo: "/logo.svg",
-    sidebar: siteConfig,
+    sidebar,
     nav,
     editLink: {
       pattern:

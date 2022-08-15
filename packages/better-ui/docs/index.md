@@ -1,42 +1,32 @@
-# 🔨 What is better-ui?
+---
+layout: home
 
-Better-ui, a library of Vite-based desktop components for developers, designers, and product managers
+title: better-ui
+hero:
+  text: better-ui
+  tagline: 是一个基于Vite的UI组件库
+  actions:
+    - theme: brand
+      text: 快速上手
+      link: /guide/
+    - theme: alt
+      text: Github
+      link: https://github.com/better-ui/better-ui
 
-## Features
+features:
+  - title: 基于VitePress
+    details: 基于VitePress，加上增强插件，开箱即用
+  - title: Demo展示
+    details: 像dumi一样在markdown里面展示demo
+  - title: 支持API文档自动生成
+    details: 自动生成vue组件api文档
+  - title: 支持文件映射
+    details: 你可以把.md文件写在任何目录
 
-- ⚡ Vue 3, Vite 2, pnpm, ESBuild - born with fastness
-- 🦾 TypeScript, of course
-- 🗂 File based routing
-- ⚙️ Unit Testing with Vitest
-- 😃 Eslint + Prittier
-- 🎨 UnoCSS - the instant on-demand atomic CSS engine
-- 🌍 I18n ready
-- 🚘 CI/CD with Github Actions
-
-## Install
-
-```bash
-pnpm add @h7ml/better-ui -D
-```
-
-## Quick Start
-
-```js
-import Vue from "vue";
-import BetterUI from "better-ui";
-
-const App = {
-    template: `<BButton color="blue">主要按钮</BButton>`,
-};
-
-createApp(App).use(BetterUI).mount("#app");
-```
-
-## Browser Support
-
-Modern browsers and Internet Explorer 10+.
-
-## About
-- [repository](https://github.com/h7ml/better-ui)
-- [issues](https://github.com/h7ml/better-ui/issues)
-- [homepage](https://better-ui.github.io)
+footer:
+  license: MIT Licensed
+  since: 2022
+  author:
+    name: dewfall123
+    url: https://github.com/dewfall123
+---
