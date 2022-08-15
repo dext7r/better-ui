@@ -38,7 +38,7 @@ jobs:
       - name: Build project  🚀
         env:
           NODE_OPTIONS: --max_old_space_size=4096
-        run: pnpm run build
+        run: pnpm run docs:build
 
       - name: copy README.md
         run: cp README.md docs/.vitepress/dist
