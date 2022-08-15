@@ -23,10 +23,4 @@ features:
   - title: 支持文件映射
     details: 你可以把.md文件写在任何目录
 
-footer:
-  license: MIT Licensed
-  since: 2022
-  author:
-    name: dewfall123
-    url: https://github.com/dewfall123
 ---
