@@ -72,17 +72,17 @@ jobs:
           folder: docs/.vitepress/dist
           token: ${{ secrets.ACCESS_TOKEN }}
 
+      - name: Deploy to better-ui pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          repository-name: better-ui/better-ui.github.io
+          branch: gh-pages
+          folder: docs/.vitepress/dist
+          token: ${{ secrets.ACCESS_TOKEN }}
+
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Sync to Gitee  🚀
-        uses: wearerequired/git-mirror-action@master
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-        with:
-          source-repo: git@github.com:better-ui/better-ui.git
-          destination-repo: git@gitee.com:better-ui/better-ui.git
-
       - name: Build Gitee Pages  🚀
         uses: yanglbme/gitee-pages-action@main
         with:
