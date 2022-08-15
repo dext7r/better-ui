@@ -1,14 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>better-ui</title>
-</head>
-<body>
-<h1>better-ui</h1>
-<div id="app"></div>
-<script src="./src/index.ts" type="module"></script>
-</body>
+  </head>
+  <body>
+    <h1>better-ui</h1>
+    <div id="app"></div>
+    <!--<script src="./src/index.ts" type="module"></script>-->
+    <script type="module">
+      import style from "better-ui/dist/style.css";
+      import { createApp } from "vue/dist/vue.esm-bundler.js";
+      import BetterUI from "better-ui/dist/better-ui.mjs";
+      const createButton = `
+<div style="margin-bottom:20px;">
+       <BButton color="blue">主要按钮</BButton>
+       <BButton color="green">绿色按钮</BButton>
+       <BButton color="gray">灰色按钮</BButton>
+       <BButton color="yellow">黄色按钮</BButton>
+       <BButton color="red">红色按钮</BButton>
+   </div>
+   <div style="margin-bottom:20px;"
+   >
+       <BButton color="blue" plain>朴素按钮</BButton>
+       <BButton color="green" plain>绿色按钮</BButton>
+       <BButton color="gray" plain>灰色按钮</BButton>
+       <BButton color="yellow" plain>黄色按钮</BButton>
+       <BButton color="red" plain>红色按钮</BButton>
+   </div>
+   <div style="margin-bottom:20px;">
+       <BButton size="small" plain>小按钮</BButton>
+       <BButton size="medium" plain>中按钮</BButton>
+       <BButton size="large" plain>大按钮</BButton>
+   </div>
+   <div style="margin-bottom:20px;">
+       <BButton color="blue" round plain icon="search">搜索按钮</BButton>
+       <BButton color="green" round plain icon="edit">编辑按钮</BButton>
+       <BButton color="gray" round plain icon="check">成功按钮</BButton>
+       <BButton color="yellow" round plain icon="message">提示按钮</BButton>
+       <BButton color="red" round plain icon="delete">删除按钮</BButton>
+   </div>
+   <div style="margin-bottom:20px;">
+       <BButton color="blue" round plain icon="search"></BButton>
+       <BButton color="green" round plain icon="edit"></BButton>
+       <BButton color="gray" round plain icon="check"></BButton>
+       <BButton color="yellow" round plain icon="message"></BButton>
+       <BButton color="red" round plain icon="delete"></BButton>
+   </div>`;
+      createApp({
+        template: createButton,
+      })
+        .use(BetterUI)
+        .mount("#app");
+    </script>
+  </body>
 </html>

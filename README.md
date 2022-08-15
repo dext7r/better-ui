@@ -1,4 +1,4 @@
-# 🔨 What is Better - the Ui?
+# 🔨 What is better-ui?
 
 Better-ui, a library of Vite-based desktop components for developers, designers, and product managers
 
@@ -26,7 +26,7 @@ import Vue from "vue";
 import BetterUI from "better-ui";
 
 const App = {
-  template: `<BButton color="blue">主要按钮</BButton>`,
+    template: `<BButton color="blue">主要按钮</BButton>`,
 };
 
 createApp(App).use(BetterUI).mount("#app");

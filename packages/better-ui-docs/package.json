@@ -1,19 +1,10 @@
 {
-  "name": "@h7ml/better-ui",
+  "name": "better-ui-docs",
   "version": "1.0.0",
-  "description": "better-ui",
+  "description": "better-ui-docs",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint --fix --ext .ts,.tsx,.vue src",
-    "format": "prettier --write \"src/**/*.ts\"",
-    "test": "vitest",
-    "test:run": "vitest run",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs",
-    "prepare": "husky install"
+    "dev": "vite"
   },
   "keywords": [
     "better-ui"
@@ -39,62 +30,11 @@
   },
   "homepage": "https://better-h7ml.vercel.app",
   "dependencies": {
-    "@h7ml/better-ui": "latest",
-    "@types/fs-extra": "^9.0.13",
-    "@typescript-eslint/eslint-plugin": "^5.20.0",
-    "@typescript-eslint/parser": "^5.20.0",
-    "@vitejs/plugin-vue": "^2.3.3",
-    "@vitejs/plugin-vue-jsx": "^1.3.10",
-    "@vue/eslint-config-prettier": "^7.0.0",
-    "@vue/test-utils": "^2.0.0-rc.20",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^8.13.0",
-    "eslint-formatter-pretty": "^4.1.0",
-    "eslint-plugin-json": "^3.1.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.6.0",
-    "fs-extra": "^10.1.0",
-    "prettier": "^2.6.2",
-    "ts-node": "^10.9.1",
-    "vite": "^3.0.5",
+    "better-ui": "workspace:^1.0.0",
     "vue": "^3.2.37"
   },
   "engines": {
     "node": ">= 12.0.0",
     "npm": ">= 3.0.0"
-  },
-  "devDependencies": {
-    "@iconify-json/ic": "^1.1.4",
-    "@testing-library/vue": "^6.5.1",
-    "@types/react": "^18.0.9",
-    "@unocss/preset-attributify": "^0.35.1",
-    "@unocss/preset-icons": "^0.30.10",
-    "@unocss/preset-uno": "^0.35.1",
-    "@vitejs/plugin-vue": "3.0.3",
-    "@vitejs/plugin-vue-jsx": "^2.0.0",
-    "@vitest/ui": "^0.14.0",
-    "c8": "^7.11.3",
-    "commitizen": "^4.2.5",
-    "conventional-changelog-cli": "^2.2.2",
-    "cz-conventional-changelog": "^3.3.0",
-    "happy-dom": "^4.0.0",
-    "husky": "^8.0.1",
-    "jsdom": "^19.0.0",
-    "pnpm": "^7.9.0",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "standard-version": "^9.5.0",
-    "unocss": "^0.33.4",
-    "vitepress": "^0.22.4",
-    "vitepress-theme-demoblock": "^1.4.2",
-    "vitest": "^0.14.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
   }
 }

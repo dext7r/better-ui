@@ -30,6 +30,9 @@ jobs:
       - name: Install Dependencies
         run: nci
 
+      - name: cd better-ui  🚀
+        run: cd packages/better-ui
+
       - name: PNPM build
         run: nr build
 

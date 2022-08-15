@@ -26,52 +26,120 @@ jobs:
           dst: gitee/better-ui
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
-#          static_list: "better-ui"
+          #          static_list: "better-ui"
           account_type: org
     needs: deploy
 
   deploy:
-    name: deploy 🚀
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [latest]
     steps:
-      - name: Checkout 🚀
-        uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }} 🚀
-        uses: actions/setup-node@v2
-      - name: Cache yarn modules  🚀
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-yarn-modules
+      - name: Checkout  🚀
+        uses: actions/checkout@v3
         with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-
-      - name: yarn script 🚀
-        run: |
-          yarn install
-          yarn build
-      - name: Upload  better-ui 🚀
+          ref: master
+          fetch-depth: 0
+
+      - name: Install pnpm  🚀
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+          run_install: true
+
+      - name: Setup Node.js  🚀
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          cache: pnpm
+
+      - name: Install Deps  🚀
+        run: pnpm install
+
+      - name: cd better-ui  🚀
+        run: cd packages/better-ui
+
+      - name: Build project  🚀
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+        run: pnpm run docs:build
+
+      - name: copy README.md
+        run: cp README.md packages/better-ui/docs/.vitepress/dist
+
+      - name: Upload better-ui 🚀
         uses: actions/upload-artifact@v2
         with:
           name: better-ui
-          path: dist
+          path: packages/better-ui/docs/.vitepress/dist
+
+      - name: Deploy to github gh-pages 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.GIT_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: packages/better-ui/docs/.vitepress/dist
+
       - name: Deploy to surge 🚀
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: "better-ui.surge.sh"
-          project: "./dist"
+          project: packages/better-ui/docs/.vitepress/dist
           login: ${{ secrets.surge_login }}
           token: ${{ secrets.surge_token }}
-      - name: Upload surge service and generate preview URL 🚀
-        id: deploy
+
+      - name: Deploy to gh-pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          repository-name: better-ui/better-ui
+          branch: gh-pages
+          folder: packages/better-ui/docs/.vitepress/dist
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Deploy to better-ui pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          repository-name: better-ui/better-ui.github.io
+          branch: gh-pages
+          folder: packages/better-ui/docs/.vitepress/dist
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+  gh-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Gitee Pages  🚀
+        uses: yanglbme/gitee-pages-action@main
+        with:
+          # 注意替换为你的 Gitee 用户名
+          gitee-username: ${{ secrets.GITEE_USERNAME }}
+          # 注意在 Settings->Secrets 配置 GITEE_PASSWORD
+          gitee-password: ${{ secrets.GITEE_PASSWORD }}
+          # 注意替换为你的 Gitee 仓库，仓库名严格区分大小写，请准确填写，否则会出错
+          gitee-repo: better-ui/better-ui
+          # 要部署的分支，默认是 master，若是其他分支，则需要指定（指定的分支必须存在）
+          branch: gh-pages
+    needs: sync
+
+  clear:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🚀
+        uses: actions/checkout@v2
+        with:
+          repository: "jdsync/Workflows-Cleaner"
+      - name: Set up Python 🚀
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - name: Install pipenv 🚀
+        env:
+          GITHUB_REPO: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.ACTION_SECRET }}
+          EXPIRE_TIME: "1h"
         run: |
-          export GITHUB_SHA=${{ github.sha }}
-          export GITHUB_SHA_SUB=${GITHUB_SHA: 0: 7 }
-          export DEPLOY_DOMAIN=https://better-ui-$GITHUB_SHA_SUB.surge.sh
-          npx surge --project ./dist --domain $DEPLOY_DOMAIN --token ${{ secrets.surge_token }}
-          echo the preview URL is $DEPLOY_DOMAIN
-          echo "::set-output name=url::$DEPLOY_DOMAIN"
+          python -m pip install --upgrade pipenv wheel
+          pipenv install
+          pipenv run python run.py
+      - name: Upload coverage to Codecov  🚀
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+    needs: gh-pages
