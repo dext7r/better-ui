@@ -22,6 +22,12 @@ const siteConfig = {
     },
   ],
 };
+const nav =  [
+  { text: '指南', link: '/guide/' },
+  { text: '组件', link: '/components/' },
+  { text: '主题', link: '/theme/' },
+  { text: '资源', link: '/resource/' },
+]
 export default defineConfig({
   lang: "zh-CN",
   title: "🔨  Better-Ui",
@@ -30,8 +36,9 @@ export default defineConfig({
   appearance: true,
   themeConfig: {
     siteTitle: "🔨  better-ui是一个基于Vite的UI组件库",
-    logo: "/logo.png",
+    logo: "/logo.svg",
     sidebar: siteConfig,
+    nav,
     editLink: {
       pattern:
         "https://github.com/better-ui/better-ui/edit/master/packages/better-ui/docs/:path",
