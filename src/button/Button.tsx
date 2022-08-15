@@ -45,8 +45,6 @@ export default defineComponent({
   name: "BButton",
   props,
   setup(props, { slots }) {
-    console.log(`html`, document.querySelector(`#app`)?.innerHTML);
-
     const size = {
       small: {
         x: "2",

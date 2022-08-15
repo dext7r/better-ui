@@ -1,0 +1,98 @@
+name: deploy
+
+on:
+  schedule:
+    - cron: "30 06 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+env:
+  TZ: Asia/Shanghai
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout  🚀
+        uses: actions/checkout@v3
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Install pnpm  🚀
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+          run_install: true
+
+      - name: Setup Node.js  🚀
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          cache: pnpm
+
+      - name: Install Deps  🚀
+        run: pnpm install
+
+      - name: Build project  🚀
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+        run: pnpm run build
+
+      - name: copy README.md
+        run: cp README.md docs/.vitepress/dist
+
+      - name: Upload h7ml 🚀
+        uses: actions/upload-artifact@v2
+        with:
+          name: h7ml
+          path: docs/.vitepress/dist
+
+      - name: Deploy to gh pages  🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          repository-name: h7ml/h7ml
+          branch: gh-pages
+          folder: docs/.vitepress/dist
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Deploy to surge 🚀
+        uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: "better-ui.surge.sh"
+          project: docs/.vitepress/dist
+          login: ${{ secrets.surge_login }}
+          token: ${{ secrets.surge_token }}
+
+      - name: Deploy to gh-pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          repository-name: better-ui/better-ui
+          branch: gh-pages
+          folder: docs/.vitepress/dist
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync to Gitee  🚀
+        uses: wearerequired/git-mirror-action@master
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+        with:
+          source-repo: git@github.com:better-ui/better-ui.git
+          destination-repo: git@gitee.com:better-ui/better-ui.git
+
+      - name: Build Gitee Pages  🚀
+        uses: yanglbme/gitee-pages-action@main
+        with:
+          # 注意替换为你的 Gitee 用户名
+          gitee-username: ${{ secrets.GITEE_USERNAME }}
+          # 注意在 Settings->Secrets 配置 GITEE_PASSWORD
+          gitee-password: ${{ secrets.GITEE_PASSWORD }}
+          # 注意替换为你的 Gitee 仓库，仓库名严格区分大小写，请准确填写，否则会出错
+          gitee-repo: better-ui/better-ui
+          # 要部署的分支，默认是 master，若是其他分支，则需要指定（指定的分支必须存在）
+          branch: gh-pages
+    needs: deploy

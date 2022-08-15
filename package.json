@@ -7,7 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint --fix --ext .ts,.tsx,.vue src",
-    "format": "prettier --write \"src/**/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\"",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
+    "prepare": "husky install"
   },
   "keywords": [
     "better-ui"
@@ -63,22 +69,24 @@
     "@unocss/preset-attributify": "^0.35.1",
     "@unocss/preset-icons": "^0.30.10",
     "@unocss/preset-uno": "^0.35.1",
-    "@vitest/ui": "^0.14.0",
-    "c8": "^7.11.3",
-    "happy-dom": "^4.0.0",
-    "jsdom": "^19.0.0",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "unocss": "^0.33.4",
-    "vitepress": "^0.22.4",
-    "vitepress-theme-demoblock": "^1.4.2",
-    "vitest": "^0.14.0",
     "@vitejs/plugin-vue": "3.0.3",
     "@vitejs/plugin-vue-jsx": "^2.0.0",
+    "@vitest/ui": "^0.14.0",
+    "c8": "^7.11.3",
     "commitizen": "^4.2.5",
     "conventional-changelog-cli": "^2.2.2",
     "cz-conventional-changelog": "^3.3.0",
-    "standard-version": "^9.5.0"
+    "happy-dom": "^4.0.0",
+    "husky": "^8.0.1",
+    "jsdom": "^19.0.0",
+    "pnpm": "^7.9.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "standard-version": "^9.5.0",
+    "unocss": "^0.33.4",
+    "vitepress": "^0.22.4",
+    "vitepress-theme-demoblock": "^1.4.2",
+    "vitest": "^0.14.0"
   },
   "config": {
     "commitizen": {
