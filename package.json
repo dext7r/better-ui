@@ -39,7 +39,7 @@
   },
   "homepage": "https://better-h7ml.vercel.app",
   "dependencies": {
-    "@h7ml/better-ui": "last",
+    "@h7ml/better-ui": "latest",
     "@types/fs-extra": "^9.0.13",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
