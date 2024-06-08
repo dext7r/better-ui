@@ -32,7 +32,7 @@
   "homepage": "https://better-h7ml.vercel.app",
   "dependencies": {
     "@commitlint/cli": "^17.0.2",
-    "@commitlint/config-conventional": "^17.0.2",
+    "@commitlint/config-conventional": "^19.2.2",
     "vite": "^3.0.4"
   },
   "engines": {
